@@ -28,15 +28,6 @@ Now create the function again, this time with the right container image name.
 riff create --name echo-shell
 ```
 
-Make sure the pod is running.  
----
-The STATUS should be **Running**, if it is **ImagePullBackOff**, then the container image name is likely wrong.
-```
-kubectl get pods
-NAME                                             READY     STATUS    RESTARTS   AGE
-echo-shell-7b88cf98d5-6w6b6                      2/2       Running   0          3s
-```
-
 Call the Function
 ---
 If you havn't already, ensure your shell environment is setup with the Riff HTTP Gateway
