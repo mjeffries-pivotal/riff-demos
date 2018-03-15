@@ -21,7 +21,7 @@ For example, the output from the line above should include something like this:
 Successfully tagged mjeffries/echo-java:0.0.1
 ```
 
-So the container image name in the echo-shell-function.yaml should be:
+So the container image name in the echo-java-function.yaml should be:
 ```
 container:
     image: mjeffries/echo-java:0.0.1

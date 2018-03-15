@@ -13,10 +13,10 @@ Update the name of the container image in the function YAML file.
 ---
 For example, the output from the line above should include something like this:
 ```
-Successfully tagged mjeffries/echo-node:0.0.1 
+Successfully tagged mjeffries/echo-node:0.0.1
 ```
 
-So the container image name in the echo-shell-function.yaml should be:
+So the container image name in the echo-node-function.yaml should be:
 ```
 container:
     image: mjeffries/echo-node:0.0.1

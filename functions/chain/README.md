@@ -3,7 +3,7 @@ Chain
 
 An example of chaining the output of one function to the input of another. As Riff allows the developer to define both the input as well as the output, this means that we can place the output into an existing topic that may be the input into another.
 
-This example includes two functions, [greeting](https://github.com/BrianMMcClain/riff-demos/tree/master/functions/chain/greeting) and [timestamp](https://github.com/BrianMMcClain/riff-demos/tree/master/functions/chain/timestamp). 
+This example includes two functions, [greeting](https://github.com/mjeffries-pivotal/riff-demos/tree/master/functions/chain/greeting) and [timestamp](https://github.com/mjeffries-pivotal/riff-demos/tree/master/functions/chain/timestamp).
 
 The `timestamp` function can (and does) operate independently from the `greeting` function, and can actually be called directly if needed (should you ever need any of your fucture functions to be timestamped). We then wrote the `greeting` function to send it's output to the `timestamp` function's input topic rather than immeditally returning to the user. This allows the developer a wide range of flexibility to chain together both new and existing functions as needed.
 
@@ -37,8 +37,35 @@ The `timestamp` function then picks this up off of the `timestamp` topic, execut
 
 Building It
 ---
-The functions are built and applied just as any other function, but you may run the [build.sh](https://github.com/BrianMMcClain/riff-demos/tree/master/functions/chain/build.sh) script to get both functions up and running
+The functions are built and applied just as any other function, but you may run the [build.sh](https://github.com/mjeffries-pivotal/riff-demos/tree/master/functions/chain/build.sh) script to get both functions up and running
 
+```
+./build.sh
+```
+
+Update the name of the container images in the function YAML files.
+---
+For example, the output from the line above should include something like this:
+```
+Successfully tagged mjeffries/greeting:0.0.1
+...
+Successfully tagged mjeffries/timestamp:0.0.1
+```
+
+So the container image name in the greeting/greeting-function.yaml should be:
+```
+container:
+    image: mjeffries/greeting:0.0.1
+```
+
+And the container image name in the timestamp/timestamp-function.yaml should be:
+```
+container:
+    image: mjeffries/timestamp:0.0.1
+```
+
+Now create the functions again, this time with the right container image names.
+---
 ```
 ./build.sh
 ```
